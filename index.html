@@ -48,7 +48,7 @@
         <!-- Dynamic styling with CSS classes -->
         <hr>
         <p>Dynamic styling with CSS classes</p>
-        <div class="demo" @click="attachedRed = !attachedRed" :class="{red: attachedRed}"></div>
+        <div class="demo" @click="attachedRed = !attachedRed" :class="divClasses"></div>
         <div class="demo" :class="{red: attachedRed}"></div>
         <div class="demo"></div>
     </div>
@@ -85,6 +85,14 @@
                 },
                 alertMe: function () {
                     alert('Alert!');
+                }
+            },
+            computed: {
+                divClasses: function() {
+                    return {
+                        red: this.attachedRed,
+                        blue: !this.attachedRed
+                    }
                 }
             }
         }
