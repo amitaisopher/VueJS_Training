@@ -46,6 +46,8 @@
         <input type="text" v-model="name">
         <p>{{name}}</p>
         <!-- Dynamic styling with CSS classes -->
+        <hr>
+        <p>Dynamic styling with CSS classes</p>
         <div class="demo" @click="attachedRed = !attachedRed" :class="{red: attachedRed}"></div>
         <div class="demo" :class="{red: attachedRed}"></div>
         <div class="demo"></div>
