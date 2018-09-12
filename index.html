@@ -47,10 +47,12 @@
         <p>{{name}}</p>
         <!-- Dynamic styling with CSS classes -->
         <hr>
-        <p>Dynamic styling with CSS classes</p>
+        <p>Dynamic styling with CSS classes - using names</p>
         <div class="demo" @click="attachedRed = !attachedRed" :class="divClasses"></div>
         <div class="demo" :class="{red: attachedRed}"></div>
-        <div class="demo"></div>
+        <div class="demo" :class="[color, {red: attachedRed}]"></div>
+        <hr>
+        <input type="text" v-model="color">
     </div>
 </body>
 
@@ -66,7 +68,8 @@
                 x: 0,
                 y: 0,
                 name: 'Amitai',
-                attachedRed: false
+                attachedRed: false,
+                color: 'green'
             },
             methods: {
                 changeTitle: function (event) {
