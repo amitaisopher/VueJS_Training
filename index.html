@@ -45,12 +45,12 @@
         <p>Two way data binding</p>
         <input type="text" v-model="name">
         <p>{{name}}</p>
-        <!-- Dynamic styling without CSS classes -->
+        <!-- Dynamic styling with array syntax -->
         <hr>
-        <p>Dynamic styling without CSS classes</p>
+        <p>Dynamic styling with array syntax</p>
         <div class="demo" :style="{'background-color': color}"></div>
         <div class="demo" :style="myStyle"></div>
-        <div class="demo"></div>
+        <div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
         <hr>
         <input type="text" v-model="color">
         <input type="text" v-model="width">
