@@ -45,14 +45,15 @@
         <p>Two way data binding</p>
         <input type="text" v-model="name">
         <p>{{name}}</p>
-        <!-- Dynamic styling with CSS classes -->
+        <!-- Dynamic styling without CSS classes -->
         <hr>
-        <p>Dynamic styling with CSS classes - using names</p>
-        <div class="demo" @click="attachedRed = !attachedRed" :class="divClasses"></div>
-        <div class="demo" :class="{red: attachedRed}"></div>
-        <div class="demo" :class="[color, {red: attachedRed}]"></div>
+        <p>Dynamic styling without CSS classes</p>
+        <div class="demo" :style="{'background-color': color}"></div>
+        <div class="demo" :style="myStyle"></div>
+        <div class="demo"></div>
         <hr>
         <input type="text" v-model="color">
+        <input type="text" v-model="width">
     </div>
 </body>
 
@@ -68,8 +69,8 @@
                 x: 0,
                 y: 0,
                 name: 'Amitai',
-                attachedRed: false,
-                color: 'green'
+                color: 'gray',
+                width: 100
             },
             methods: {
                 changeTitle: function (event) {
@@ -91,10 +92,10 @@
                 }
             },
             computed: {
-                divClasses: function() {
+                myStyle: function() {
                     return {
-                        red: this.attachedRed,
-                        blue: !this.attachedRed
+                        'background-color': this.color,
+                        width: this.width + 'px'
                     }
                 }
             }
